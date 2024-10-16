@@ -6,7 +6,7 @@ pipeline {
     stage('Build Image') {
       steps {
       sh "docker build --no-cache --build-arg='GIT_COMMIT_ID=${env.GIT_COMMIT}' -t monika-cmd/request-logger:${env.GIT_COMMIT} -f Dockerfile-multi ."
-      sh "docker tag brainupgrade/request-logger:${env.GIT_COMMIT} monika-cmd/request-logger:latest"
+      sh "docker tag monika-cmd/request-logger:${env.GIT_COMMIT} monika-cmd/request-logger:latest"
       }
     }
     
