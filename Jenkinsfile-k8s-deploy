@@ -14,7 +14,7 @@ pipeline {
 
   post {
     success {
-      withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'monika-cmd', passwordVariable: 'Kartikeya101188')]) {
+      withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
         sh "docker login -u ${USERNAME} -p ${PASSWORD}"
         sh "docker push monika-cmd/request-logger:${env.GIT_COMMIT}"
         sh "docker push monika-cmd/request-logger:latest"
